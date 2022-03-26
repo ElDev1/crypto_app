@@ -1,25 +1,26 @@
 import React from 'react';
 import millify from 'millify';
 import { Typography, Row, Col, Statistic} from 'antd';
+import { Link } from 'react-router-dom';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import { Cryptocurrencies, News } from '../components';
 const {Title} = Typography
 
 const Homepage = () => {
-  const {data, isFeching } = useGetCryptosQuery();
+  const {data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
-
+  
   //console.log(data);
   console.log(globalStats);
 
-  if(isFeching) {
+  if(isFetching) {
     return 'loading';
   }
 
   return (
     <>
-        <title level={2} className='heading'>Global Crypto Stats</title>
+        <Title level={2} className='heading'>Global Crypto Stats</Title>
         <Row>
             <Col span={12}><Statistic title='Total Cryptocurrencies' value={globalStats.total} /></Col>
             <Col span={12}><Statistic title='Total Exchanges' value={millify(globalStats.totalExchanges)}/></Col>
