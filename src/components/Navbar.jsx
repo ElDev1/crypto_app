@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="logo-container">
             <Avatar src={Icon} size="large" />
             <Typography.Title level={2} className="logo">
-                <Link to='/'>CriptoApp</Link>
+                <Link to='/'>CryptoApp</Link>
             </Typography.Title>
             <Button className="menu-control-container">
 
